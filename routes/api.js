@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET something. */
 router.get('/', function(req, res, next) {
   res.json({
-    msg: 'I am a message'
+    msg: 'I am a message!'
   });
 });
 

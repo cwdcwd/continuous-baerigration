@@ -1,4 +1,6 @@
 var request = require('supertest');
+var expect = require('chai').expect;
+
 describe('loading express', function () {
   var server;
   beforeEach(function () {
@@ -13,16 +15,28 @@ describe('loading express', function () {
     .expect(200, done);
   });
   it('responds to /api', function testAPI(done) {
+    const msg='I am a message!';
   request(server)
     .get('/api')
-    .expect(200, done);
+    .end(function (err, res) {
+      expect(200);
+      expect(res.body.msg).to.equal(msg);
+      done();
+    });
   });
   it('responds to /api', function testAPI(done) {
-  request(server)
-    .post('/api')
+    const msg='I am a message!';
+  request(server).post('/api')
     .set('Content-Type', 'application/json')
-    .send({ msg: 'I am an object!'})
-    .expect(200, done);
+    .send({ msg })
+    .end(function (err, res) {
+      if (err) {
+          return done(err);
+      }
+      expect(200);
+      expect(res.body.msg).to.equal(msg);
+      done();
+    });
   });
   it('404 everything else', function testPath(done) {
     request(server)
