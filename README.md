@@ -2,7 +2,7 @@
 
 The point of this project is to demonstrate Continuous Integration & Deployment of a web app using:
 - Heroku Deployment Pipelines
-- Cirle CI
+- Circle CI
 - Gitlab CI
 
 ## Testing
