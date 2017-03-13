@@ -1,0 +1,41 @@
+{
+  "name": "Continuous Baerigration",
+  "description": "This app shows the basics of setting up CI on heroku",
+  "keywords": [
+    "automation",
+    "CI/CD",
+    "node"
+  ],
+  "website": "https://continuous-baerigration-prod.herokuapp.com/",
+  "repository": "https://github.com/cwdcwd/continuous-baerigration",
+  "logo": "https://s.gravatar.com/avatar/0885079e652bde2dd51e84c80b59c46a?s=80",
+  "success_url": "/",
+  "env": {
+    "APP_TITLE": {
+      "description": "title for the app",
+      "value": "continuous-baerigration!!!"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [
+    "papertrail", {
+      "plan": "papertrail:choklad-free",
+      "as": "PAPERTRAIL"
+    }
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "npm test"
+      }
+    }
+  }
+}
