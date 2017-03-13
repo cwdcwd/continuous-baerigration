@@ -7,3 +7,4 @@ The point of this project is to demonstrate Continuous Integration & Deployment 
 
 ## Testing
 - route unit testing done w/ Mocha & Supertest
+- to run, execute `npm test`
