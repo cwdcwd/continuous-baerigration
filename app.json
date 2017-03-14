@@ -22,12 +22,7 @@
       "size": "free"
     }
   },
-  "addons": [
-    "papertrail", {
-      "plan": "papertrail:choklad",
-      "as": "PAPERTRAIL"
-    }
-  ],
+  "addons": ["papertrail"],
   "buildpacks": [{
     "url": "heroku/nodejs"
   }],
