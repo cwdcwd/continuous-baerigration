@@ -1,8 +1,8 @@
 'use strict';
 
-let config={};
+const config = {};
 
-config.APP_TITLE=process.env.APP_TITLE || 'Lazybaer\'s Continuous Baerigration Sample App';
+config.APP_TITLE = process.env.APP_TITLE || 'Lazybaer\'s Continuous Baerigration Sample App';
 
 
-module.exports=config;
+module.exports = config;
