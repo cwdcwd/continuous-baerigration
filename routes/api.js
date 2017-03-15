@@ -1,15 +1,18 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
+
+const express = require('express');
+
+const router = express.Router();
 
 /* GET something. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res) => {
   res.json({
     msg: 'I am a message!'
   });
 });
 
 /* POST something. */
-router.post('/', function(req, res, next) {
+router.post('/', (req, res) => {
   res.json(req.body); // CWD-- sending pack what was posted
 });
 

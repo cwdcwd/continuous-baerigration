@@ -1,0 +1,17 @@
+{
+    "env": {
+        "mocha": true,
+        "node": true
+    },
+  "extends": "eslint-config-topcoder/nodejs",
+  "rules": {
+    "no-console": 1,
+    "comma-dangle": ["error", {
+            "arrays": "never",
+            "objects": "never",
+            "imports": "never",
+            "exports": "never",
+            "functions": "ignore",
+        }]
+  }
+}
