@@ -6,4 +6,10 @@
 
 origin=$(git config --get remote.origin.url)
 echo "creating pipeline for $1 from $origin"
-heroku pipelines:setup $1 $origin
+regex='^(.*\:)(.*\/.*)(\.git)'
+
+if [[ $origin =~ $regex ]]; then
+  repo=${BASH_REMATCH[2]}
+  echo "heroku pipelines:setup $1 $repo"
+  heroku pipelines:setup $1 $repo
+fi
