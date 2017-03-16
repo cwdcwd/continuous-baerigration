@@ -31,4 +31,5 @@ The point of this project is to demonstrate Continuous Integration & Deployment 
 - Under the "Project Settings" -> "Test Commands" -> "Test Commands" -> set the "Test commands" to `npm test`\
 
 ## Setting up Heroku Pipelines
-- 
+- run the `herokuPipeline.sh` bash script to create an app and pipeline. i.e.: `./herokuPipeline.sh fancyAppName`
+- this will prompt you set up your pipeline
