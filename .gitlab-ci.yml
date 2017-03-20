@@ -53,7 +53,7 @@ deploy_stage:
   - master
   environment:
     name: dev
-    url: $HEROKU_DEV_URL
+    url: $HEROKU_STAGING_URL
 variables:
   GIT_STRATEGY: fetch
   GIT_SUBMODULE_STRATEGY: recursive
