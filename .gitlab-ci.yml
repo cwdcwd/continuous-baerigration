@@ -14,7 +14,7 @@ stages:
   - test
   - deploy
 
-job_name:
+building:
   script:
     - echo "Building the app"
     - npm i
@@ -22,8 +22,6 @@ job_name:
   only:
     - master
     - develop
-  cache:
-    - node_modules/
 
 testing:
   script:
@@ -34,7 +32,7 @@ testing:
     - master
     - develop
 
-staging:
+deploy_dev:
   stage: deploy
   script:
     - echo "Deploying the app"
@@ -48,7 +46,7 @@ staging:
     name: dev
     url: $HEROKU_DEV_URL
 
-production:
+deploy_stage:
   stage: deploy
   script:
   - echo "Deploying the app"
