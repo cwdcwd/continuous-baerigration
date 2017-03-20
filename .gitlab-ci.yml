@@ -19,18 +19,13 @@ building:
     - echo "Building the app"
     - npm i
   stage: build
-  only:
-    - master
-    - develop
 
 testing:
   script:
     - echo "Running tests"
+    - npm i
     - npm test
   stage: test
-  only:
-    - master
-    - develop
 
 deploy_dev:
   stage: deploy
