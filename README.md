@@ -25,3 +25,13 @@ The point of this project is to demonstrate Continuous Integration & Deployment 
 ## Testing:
 - route unit testing done w/ Mocha & Supertest
 - to run, execute `npm test`
+
+## Setting up CircleCI
+- sign up & login to CircleCI.
+- create a new project inside CircleCI and add your repo to it.
+- Under the "Project Settings" -> "Build Settings" -> "Advanced Settings" -> "Build forked pull requests" make sure the setting is "On"
+- Under the "Project Settings" -> "Test Commands" -> "Test Commands" -> set the "Test commands" to `npm test`\
+
+## Setting up Heroku Pipelines
+- run the `herokuPipeline.sh` bash script to create an app and pipeline. i.e.: `./herokuPipeline.sh fancyAppName`
+- this will prompt you set up your pipeline
