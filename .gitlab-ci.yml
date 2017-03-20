@@ -1,0 +1,66 @@
+image: node:latest
+
+variables:
+  PORT: 3000
+  APP_TITLE: "Continuous Baerigration-Gitlab Style!"
+  NODE_ENV: development
+
+cache:
+  paths:
+  - node_modules/
+
+stages:
+  - build
+  - test
+  - deploy
+
+job_name:
+  script:
+    - echo "Building the app"
+    - npm i
+  stage: build
+  only:
+    - master
+    - develop
+  cache:
+    - node_modules/
+
+testing:
+  script:
+    - echo "Running tests"
+    - npm test
+  stage: test
+  only:
+    - master
+    - develop
+
+staging:
+  stage: deploy
+  script:
+    - echo "Deploying the app"
+    - apt-get update -qy
+    - apt-get install -y rubygems ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=werbung-proxy-dev --api-key=$HEROKU_DEV_API_KEY
+  only:
+  - develop
+  environment:
+    name: dev
+    url: $HEROKU_DEV_URL
+
+production:
+  stage: deploy
+  script:
+  - echo "Deploying the app"
+  - apt-get update -qy
+  - apt-get install -y rubygems ruby-dev
+  - gem install dpl
+  - dpl --provider=heroku --app=werbung-proxy-dev --api-key=$HEROKU_STAGING_API_KEY
+  only:
+  - master
+  environment:
+    name: dev
+    url: $HEROKU_DEV_URL
+variables:
+  GIT_STRATEGY: fetch
+  GIT_SUBMODULE_STRATEGY: recursive
