@@ -52,7 +52,7 @@ deploy_stage:
   only:
   - master
   environment:
-    name: dev
+    name: stage
     url: $HEROKU_STAGING_URL
 variables:
   GIT_STRATEGY: fetch
